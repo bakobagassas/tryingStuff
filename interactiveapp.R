@@ -1,29 +1,26 @@
-# load libraries
 library(shiny)
-library(shinythemes)
-library(shinyjs)
-library(tidyverse)
 
-# ui
 ui <- fluidPage(
   titlePanel("interactive greeting application"),
   
-  textInput(
+  radioButtons( # or selectInput
     inputId = "user_input",
-    label = "Enter your greeting:",
-    value = "Hello, World!"
+    label = "Choose a greeting:",
+    choices = c("Hello", "Ca va", "Yaneh", "Matno"),
+    selected = "Matno"
   ),
   
-  textOutput(outputId = "greeting")
+  textInput(inputId = "name",
+            label="what is your name"),
+  
+  textOutput(outputId ="greeting")
 )
 
-# server
 server <- function(input, output) {
   output$greeting <- renderText({
-    paste0(input$user_input)
+    paste(input$user_input, input$name)
   })
 }
 
-# Launch the app
 shinyApp(ui, server)
   
