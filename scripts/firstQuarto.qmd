@@ -6,15 +6,37 @@ editor: visual
 
 ## Quarto
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>. [this is another way to link](https://quarto.org)
+
+this is another paragraph. This is **bold** and this is *italics* **also bold** and *italics*
+
+- this is a lost
+- and here
+- and there
 
 ## Running Code
 
 When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
 ```{r}
+#| echo: false
 1 + 1
 ```
+## demo
+
+```{r}
+library(tidyverse)
+library(here)
+interviews_plotting <- read_csv(here("data", "interviews-plotting.csv"))
+read_csv(".../data/interviews-plotting.csv")
+interviews_plotting
+
+ 
+```
+
+### third level heading
+
+#### forth level heading
 
 You can add options to executable code like this
 
